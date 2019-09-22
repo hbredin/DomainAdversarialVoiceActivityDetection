@@ -2,7 +2,7 @@
 
 ## Installation
 
-Start by creating a new conda environment where we will install [pyannote-audio](https://github.com/pyannote/pyannote-audio)
+Start by creating a new conda environment where we will install [pyannote-audio](https://github.com/pyannote/pyannote-audio).
 
 ```bash
 # create a conda environment with Python 3.6 or later
@@ -18,7 +18,7 @@ $ git checkout develop
 $ pip install .
 ```
 
-## Database creation
+## Database creation
 
 Once the conda environment has been installed, the next step consists of building the database with all the information we need
 for performing domain-adversarial speech activity detection. This step is described in this [jupyter notebook](./database.ipynb).
