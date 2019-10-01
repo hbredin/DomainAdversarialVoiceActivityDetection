@@ -25,7 +25,7 @@ for performing domain-adversarial speech activity detection. This step is descri
 
 ## Running experiments
 
-Once you succesfully ran the [database.ipynb](./database.ipynb) of the "Database creation" step, you can first create a configuration file describing all the hyper-parameters of your model :
+Once you succesfully ran the notebook [database.ipynb](./database.ipynb) of the "Database creation" step, you can first create a configuration file describing all the hyper-parameters of your model :
 
 ```bash
 cat models/config.yml
@@ -87,19 +87,25 @@ The parameter **attachment** controls where the domain adversarial branch is plu
 - 1 corresponds to a branching right after the first LSTM.
 - 2 corresponds to a branch right after the second LSTM.
 
+Before launching train/dev/apply, don't forget to set the variable `PYANNOTE_DATABASE_CONFIG` to where your `database.yml` file is. 
+
+```bash
+export PYANNOTE_DATABASE_CONFIG="{ROOT}/database.yml"
+```
+
 Once the configuration file has been created, one can run a training by typing :
 
 ```bash
 pyannote-speech-detection train --gpu --to=200 models X.SpeakerDiarization.AMI_LeaveOneDomainOut_E
 ```
 
-Developping :
+Develop :
 
 ```bash
 pyannote-speech-detection validate --gpu models X.SpeakerDiarization.AMI_LeaveOneDomainOut_E
 ```
 
-Applying :
+Apply :
 
 ```bash
 pyannote-speech-detection apply --gpu models/train/X.SpeakerDiarization.AMI_LeaveOneDomainOut_E.train/validate/X.SpeakerDiarization.AMI_LeaveOneDomainOut_E.development X.SpeakerDiarization.AMI_LeaveOneDomainOut_E
