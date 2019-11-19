@@ -1,0 +1,46 @@
+task:
+   name: DomainAdversarialSpeechActivityDetection
+   params:
+      duration: 2.0         # sequences are 2s long
+      batch_size: 64        # 64 sequences per batch
+      domain: domain
+      attachment: 0         # indicates that the domain adversarial branch should be plugged straight after sincnet
+      per_epoch: 1          # one epoch = 1 day of audio
+      alpha: 0.01           # the weight associated to the domain loss - called lambda in the paper -
+      domain_loss: MSELoss  # the domain loss, should be in [MSELoss, NLLLoss]
+      rnn:                  # describes the architecture of the domain adversarial branch
+         unit: LSTM
+         hidden_size: 128
+         num_layers: 1
+         bidirectional: False     # unidirectional
+         pool: max                # apply max temporal pooling
+
+data_augmentation:
+   name: AddNoise                                   # add noise on-the-fly
+   params:
+      snr_min: 10                                   # using random signal-to-noise
+      snr_max: 20                                   # ratio between 10 and 20 dBs
+      collection: MUSAN.Collection.BackgroundNoise  # use background noise from MUSAN
+                                                    # (needs pyannote.db.musan)
+
+feature_extraction:
+   name: RawAudio                                   # indicates that we want to work from raw waveform directly
+   params:
+     sample_rate: 16000
+
+architecture:                                       # describes the architecture of the main branch
+   name: pyannote.audio.models.PyanNet
+   params:
+     rnn:
+        unit: LSTM
+        hidden_size: 128
+        num_layers: 2
+        bidirectional: True
+     ff:
+        hidden_size: [128, 128]
+
+scheduler:
+   name: CyclicScheduler        # use cyclic learning rate (LR) scheduler
+   params:
+      learning_rate: auto       # automatically guess LR upper bound
+      epochs_per_cycle: 14      # 14 epochs per cycle
