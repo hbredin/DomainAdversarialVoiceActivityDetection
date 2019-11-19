@@ -6,8 +6,8 @@ Start by creating a new conda environment where we will install [pyannote-audio]
 
 ```bash
 # create a conda environment with Python 3.6 or later
-$ conda create --name da-pyannote python=3.6
-$ source activate da-pyannote
+$ conda create --name pyannote python=3.6
+$ source activate pyannote
 
 # install pytorch following official instructions from https://pytorch.org/
 
@@ -87,7 +87,7 @@ The parameter **attachment** controls where the domain adversarial branch is plu
 - 1 corresponds to a branching right after the first LSTM.
 - 2 corresponds to a branch right after the second LSTM.
 
-Before launching train/dev/apply, don't forget to set the variable `PYANNOTE_DATABASE_CONFIG` to where your `database.yml` file is. 
+Before launching train/dev/apply, you must set the variable `PYANNOTE_DATABASE_CONFIG` to where your `database.yml` file is, so that the system knows where to find the DIHARD dataset : 
 
 ```bash
 export PYANNOTE_DATABASE_CONFIG="{ROOT}/database.yml"
