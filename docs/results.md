@@ -8,7 +8,7 @@ Since we couldn't give all of the details in a 4-long pages paper, we'll enjoy t
 
 We can look at the performances that the branch in charge of classifying domains gets : 
 
-![Confusion matrix on the domain classification task](./docs/confusion_matrix.png)
+![Confusion matrix on the domain classification task](../docs/confusion_matrix.png)
 
 In particular, we see that the uncertainty we get for the **socio_field** domain is high : it gets confused a lot with the **meeting** and **webvideo** domain.
 One might hope to improve the performances on the voice activity detection task by reducing the confusion we get on the domain classification task.
