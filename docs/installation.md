@@ -6,6 +6,10 @@ In particular, we focused on solving one of the earliest step of the diarization
 The installation consist of creating a new conda environment where we will install [pyannote-audio](https://github.com/pyannote/pyannote-audio).
 
 ```bash
+# First, let's clone this repo
+$ git clone https://github.com/hbredin/DomainAdversarialVoiceActivityDetection.git
+$ cd DomainAdversarialVoiceActivityDetection
+
 # create a conda environment with Python 3.6 or later
 $ conda create --name pyannote python=3.6
 $ source activate pyannote
