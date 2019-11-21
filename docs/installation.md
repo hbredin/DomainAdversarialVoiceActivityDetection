@@ -21,6 +21,10 @@ $ git clone https://github.com/pyannote/pyannote-audio.git
 $ cd pyannote-audio
 $ git checkout develop
 $ pip install .
+
+# Install pyannote protocol for MUSAN noises database.
+$ pip install pyannote.db.musan
+
 ``` 
 
 Now that the environment has been set up, we can prepare the data by following [these instructions](./database.md).
