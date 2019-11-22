@@ -24,6 +24,8 @@
 > Marvin Lavechin - marvinlavechin@gmail.com
 > Hervé Bredin - http://herve.niderb.fr
 
+![](./docs/architecture.png)
+
 # Domain Adversarial Voice Activity Detection
 
 You can follow these instructions for reproducing the results of our [End-to-end Domain Adversarial Voice Activity Detection paper](https://arxiv.org/abs/1910.10655).
