@@ -87,7 +87,7 @@ Make sure your pyannote environment has been activated before running any of the
 One can run a training by typing :
 
 ```bash
-pyannote-speech-detection train --gpu --to=200 models X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks
+pyannote-audio sad train --gpu --to=200 models X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks
 ```
 
 Where : 
@@ -100,7 +100,7 @@ This will create a model for each epoch in the **models** folder.
 Similarly, you can develop your model by typing :
 
 ```bash
-pyannote-speech-detection validate --gpu models/train/X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks.train X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks
+pyannote-audio sad validate --gpu models/train/X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks.train X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks
 ```
 
 where : 
@@ -113,7 +113,7 @@ The treshold associated to the best epoch is stored in the tree of the **models*
 Finally, one can check a model's final performances by typing :
 
 ```bash
-pyannote-speech-detection apply --gpu models/train/X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks.train/validate/X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks.development X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks
+pyannote-audio sad apply --gpu models/train/X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks.train/validate/X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks.development X.SpeakerDiarization.DIHARD_LeaveOneDomainOut_audiobooks
 ```
 
 where :

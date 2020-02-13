@@ -10,6 +10,9 @@ The installation consist of creating a new conda environment where we will insta
 $ git clone https://github.com/hbredin/DomainAdversarialVoiceActivityDetection.git
 $ cd DomainAdversarialVoiceActivityDetection
 
+# Create symlink so that the domain loss scheduler will be accessible to pyannote
+$ ln -sr callbacks/domain_loss_scheduler.py pyannote-audio/pyannote/audio/train/domain_loss_scheduler.py
+
 # create a conda environment with Python 3.6 or later
 $ conda create --name pyannote python=3.6
 $ source activate pyannote
