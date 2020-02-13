@@ -103,7 +103,7 @@ class DomainLossScheduler(Callback):
         self.lower = lower
         self.higher = higher
         self.growth = growth
-        self.base = 1.03    # base for the exponential growth
+        self.base = 1.1    # base for the exponential growth
 
         if growth not in ['linear', 'exponential']:
             msg = (
@@ -130,10 +130,15 @@ class DomainLossScheduler(Callback):
     def on_epoch_start(self, trainer):
         nb_epochs = trainer.epoch_
 
-        if self.growth == "linear":
-            trainer.alpha = self.c1 * nb_epochs + self.c2
-        elif self.growth == "exponential":
-            trainer.alpha = self.c1*self.base**nb_epochs + self.c2
+        if nb_epochs < self.start:
+            trainer.alpha = self.lower
+        elif nb_epochs > self.end:
+            trainer.alpha = self.higher
+        else:
+            if self.growth == "linear":
+                trainer.alpha = self.c1 * nb_epochs + self.c2
+            elif self.growth == "exponential":
+                trainer.alpha = self.c1*self.base**nb_epochs + self.c2
 
         # Log value of alpha in tensorboard
         trainer.tensorboard_.add_scalar(
