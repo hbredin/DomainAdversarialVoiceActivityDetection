@@ -16,7 +16,7 @@ You can follow these instructions for reproducing the results of our [End-to-end
 @inproceedings{EndToEndDAVAD2020,
     author = {Marvin Lavechin and Marie-Philippe Gill and Ruben Bousbib and Herv\'{e} Bredin and Leibny Paola Garcia-Perera},
     title = {{End-to-end Domain-Adversarial Voice Activity Detection}},
-    booktitle = {45th IEEE International Conference on Acoustics, Speech and Signal Processing, ICASSP 2020},
+    booktitle = {TO DO},
     year = {2020},
     url = {https://arxiv.org/abs/1910.10655},
 }
@@ -28,7 +28,7 @@ You can follow these instructions for reproducing the results of our [End-to-end
 @inproceedings{pyannote2020,
     author = {Herv\'{e} Bredin and Ruiqing Yin and Juan Manuel Coria and Gregory Gelly and Pavel Korshunov and Marvin Lavechin and Diego Fustes and Hadrien Titeux and Wassim Bouaziz and Marie-Philippe Gill},
     title = {{pyannote.audio: neural building blocks for speaker diarization}},
-    booktitle = {45th IEEE International Conference on Acoustics, Speech and Signal Processing, ICASSP 2020},
+    booktitle = {TO DO},
     year = {2020},
     url = {https://arxiv.org/abs/1911.01255},
 }
