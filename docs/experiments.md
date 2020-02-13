@@ -51,6 +51,15 @@ architecture:                                       # describes the architecture
      ff:
         hidden_size: [128, 128]     
 
+callbacks:
+      - name: pyannote.audio.train.domain_loss_scheduler.DomainLossScheduler
+        params:
+          lower: 0              # the initial value of alpha
+          higher: 10            # the value that alpha must reach
+          start: 0              # the epoch from which we need to start the growth
+          end: 150              # the epoch after which we need to stop the growth
+          growth: linear        # indicates the growth that needs to be adopted, must belong to ['linear', 'exponential']
+
 scheduler:
    name: CyclicScheduler        # use cyclic learning rate (LR) scheduler
    params:
